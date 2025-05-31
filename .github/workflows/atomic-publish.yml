@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Verify base image
-        uses: EyeCantCU/cosign-action/verify@v0.1.2
+        uses: EyeCantCU/cosign-action/verify@58722a084c82190b57863002d494c91eabbe9e79 # v0.3.0
         with:
           containers: base-atomic:42
           registry: 'quay.io/fedora-ostree-desktops'
