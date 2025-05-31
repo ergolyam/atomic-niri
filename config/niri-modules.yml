@@ -1,0 +1,7 @@
+modules:
+    - type: rpm-ostree
+      repos:
+        - https://copr.fedorainfracloud.org/coprs/yalter/niri/repo/fedora-%OS_VERSION%/yalter-niri-fedora-%OS_VERSION%.repo
+      install:
+        - niri
+        - waybar

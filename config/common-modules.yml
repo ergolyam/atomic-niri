@@ -1,0 +1,170 @@
+modules:
+    - type: containerfile
+      snippets:
+        - COPY --from=ghcr.io/ublue-os/akmods:main-42 /rpms /tmp/rpms
+        - COPY --from=ghcr.io/ublue-os/akmods:main-42 /kernel-rpms /tmp/rpms/kernel
+        - RUN find /tmp/rpms
+        - RUN rpm -q ublue-os-akmods-addons || rpm-ostree install /tmp/rpms/ublue-os/ublue-os-akmods-addons*.rpm
+    - type: script
+      scripts:
+        - installsignedkernel.sh
+
+    - type: containerfile
+      snippets:
+        - RUN rpm-ostree install just powerstat
+        - COPY --from=ghcr.io/ublue-os/config:latest /rpms/ublue-os-udev-rules.noarch.rpm /
+        - COPY --from=ghcr.io/ublue-os/config:latest /rpms/ublue-os-update-services.noarch.rpm /
+        - COPY --from=ghcr.io/ublue-os/config:latest /rpms/ublue-os-signing.noarch.rpm /
+        - COPY --from=ghcr.io/ublue-os/config:latest /rpms/ublue-os-luks.noarch.rpm /
+        - COPY --from=ghcr.io/ublue-os/config:latest /rpms/ublue-os-just.noarch.rpm /
+        - RUN rpm -ivh /ublue-os-udev-rules.noarch.rpm
+        - RUN rpm -ivh /ublue-os-update-services.noarch.rpm
+        - RUN rpm -ivh /ublue-os-signing.noarch.rpm
+        - RUN rpm -ivh /ublue-os-luks.noarch.rpm
+        - RUN rpm -ivh /ublue-os-just.noarch.rpm
+
+
+    - type: script
+      scripts:
+        - installandroidudev.sh
+        - ensureautoupdates.sh
+        - fixupstreamicdloaderbug.sh
+        - addimageinfo.sh
+
+    - type: rpm-ostree
+      install:
+      # launcher
+        - wofi
+        - wlogout
+
+      # environment
+        - fzf
+        - tuned-ppd
+        - xorg-x11-server-Xwayland
+        - headsetcontrol
+        - mediainfo
+        - polkit
+        - xfce-polkit 
+        - fprintd-pam
+        - xdg-user-dirs
+        - dbus-tools
+        - dbus-daemon
+        - wl-clipboard
+        - pavucontrol
+        - playerctl
+        - qt5-qtwayland
+        - qt6-qtwayland
+        - vulkan-validation-layers
+        - vulkan-tools
+        - google-noto-emoji-fonts
+        - gnome-disk-utility
+        - ddcutil
+        - openssl
+        - vim
+        - just
+        - alsa-firmware
+        - p7zip
+        - distrobox
+        
+      # sound
+        - wireplumber
+        - pipewire
+        - pamixer
+        - pulseaudio-utils
+
+      # networking
+        - network-manager-applet
+        - NetworkManager-tui
+        - NetworkManager-openvpn
+        - NetworkManager-openvpn-gnome
+        - NetworkManager-openconnect
+        - NetworkManager-openconnect-gnome
+        - bluez
+        - bluez-tools
+        - blueman
+        - firewall-config
+
+      # file manager
+        - thunar
+        - thunar-archive-plugin 
+        - thunar-volman
+        - xarchiver
+        - imv
+        - p7zip
+        - gvfs-mtp
+        - gvfs-gphoto2
+        - gvfs-smb
+        - gvfs-nfs
+        - gvfs-fuse
+        - gvfs-archive
+        - android-tools
+
+      # display
+        - wlr-randr
+        - wlsunset
+        - brightnessctl
+        - kanshi
+
+      # notifications
+        - mako
+
+      # theme and GUI
+        - fontawesome-fonts-all
+        - gnome-themes-extra
+        - gnome-icon-theme
+        - paper-icon-theme
+        - breeze-icon-theme 
+        - papirus-icon-theme
+
+    - type: script
+      scripts:
+        - installproprietarypackages.sh
+
+    - type: rpm-ostree
+      install:
+        - heif-pixbuf-loader
+        - ffmpeg
+        - ffmpeg-libs
+        - ffmpegthumbnailer
+        - pipewire-libs-extra
+        - libfdk-aac
+        - gstreamer1-plugins-bad
+        - gstreamer1-plugins-ugly 
+      remove:
+        - gstreamer1-plugins-bad-free
+        - gstreamer1-plugins-bad-free-libs
+        - gstreamer1-plugins-ugly-free
+        - gstreamer1-plugin-vaapi
+        - fdk-aac-free
+        - ffmpeg-free
+        - libavcodec-free  
+        - libavdevice-free
+        - libavfilter-free
+        - libavformat-free  
+        - libavutil-free  
+        - libpostproc-free  
+        - libswresample-free  
+        - libswscale-free  
+
+    - type: script
+      scripts:
+        - installrpmfusion.sh
+        - removeunusedrepos.sh
+
+    - type: files
+      files:
+        - source: system/usr
+          destination: /usr
+        - source: system/etc
+          destination: /etc
+
+    - type: gschema-overrides
+      include:
+        - zz1-secureblue-theming.gschema.override
+
+    - type: script
+      scripts:
+        - addbrewjustimport.sh
+
+    - type: wayblue-signing
+      source: local
