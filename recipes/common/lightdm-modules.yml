@@ -1,0 +1,9 @@
+modules: 
+    - type: rpm-ostree
+      install:
+        - lightdm-gtk
+
+    - type: systemd
+      system:
+        enabled:
+          - lightdm-gtk.service
