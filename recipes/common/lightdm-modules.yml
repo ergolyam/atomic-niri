@@ -6,4 +6,4 @@ modules:
     - type: systemd
       system:
         enabled:
-          - lightdm-gtk.service
+          - lightdm.service
