@@ -1,9 +1,11 @@
 modules: 
     - type: rpm-ostree
       install:
-        - lightdm-gtk
+        - greetd
+        - gtkgreet
+        - greetd-selinux
 
     - type: systemd
       system:
         enabled:
-          - lightdm.service
+          - greetd.service
