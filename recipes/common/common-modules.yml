@@ -162,6 +162,3 @@ modules:
     - type: script
       scripts:
         - addbrewjustimport.sh
-
-    - type: wayblue-signing
-      source: local
