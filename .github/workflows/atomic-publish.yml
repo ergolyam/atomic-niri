@@ -1,6 +1,9 @@
 name: Build and Push Atomic Image
 
 on:
+  schedule:
+    - cron:
+        "00 06 * * *"
   push:
     branches:
       - main
@@ -8,32 +11,31 @@ on:
       - 'readme.md'
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
-  build:
+  bluebuild:
+    name: Build Custom Image
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
       id-token: write
-
+    strategy:
+      fail-fast: false
+      matrix:
+        recipe:
+          - recipe.yml
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Verify base image
-        uses: EyeCantCU/cosign-action/verify@v0.3.0
+      - name: Build Custom Image
+        uses: blue-build/github-action@v1.8
         with:
-          containers: base-atomic:42
-          registry: 'quay.io/fedora-ostree-desktops'
-          pubkey: 'https://gitlab.com/fedora/ostree/ci-test/-/raw/main/quay.io-fedora-ostree-desktops.pub'
-
-      - name: Build image
-        uses: blue-build/github-action@v1.8.1
-        with:
-          cli_version: v0.9.11
-          recipe: recipe.yml
+          recipe: ${{ matrix.recipe }}
           cosign_private_key: ${{ secrets.SIGNING_SECRET }}
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
+
           maximize_build_space: true
           squash: true
