@@ -1,0 +1,10 @@
+[Unit]
+Description=Remove GTK_THEME for all Flatpak apps
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/flatpak override --user --unset-env=GTK_THEME
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

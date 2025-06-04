@@ -166,3 +166,8 @@ modules:
     - type: script
       scripts:
         - addbrewjustimport.sh
+
+    - type: systemd
+      user:
+        enabled:
+          - flatpak-unset-gtk-theme.service
