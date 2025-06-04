@@ -7,4 +7,4 @@ ExecStart=/usr/bin/flatpak override --user --unset-env=GTK_THEME
 RemainAfterExit=yes
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
