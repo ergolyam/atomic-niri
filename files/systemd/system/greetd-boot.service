@@ -4,7 +4,8 @@ Before=greetd.service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/etc/greetd/greetd-useradd
+ExecStart=/bin/sh -c '/usr/bin/getent group greetd > /dev/null || /usr/sbin/groupadd -r greetd'
+ExecStart=/bin/sh -c '/usr/bin/getent passwd greetd > /dev/null || /usr/sbin/useradd -r -g greetd -c "Greeter Account" -d /var/lib/greetd -s /usr/sbin/nologin greetd'
 RemainAfterExit=yes
 
 [Install]
