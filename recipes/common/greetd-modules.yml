@@ -5,6 +5,10 @@ modules:
         - tuigreet
         - greetd-selinux
 
+    - type: script
+      scripts:
+        - setuptuigreet.sh
+
     - type: systemd
       system:
         enabled:
