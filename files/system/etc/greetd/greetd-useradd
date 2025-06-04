@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+
+getent group greetd > /dev/null || groupadd -r greetd
+getent passwd greetd > /dev/null || useradd -r -g greetd -c "Greeter Account" -d /var/lib/greetd -s /usr/sbin/nologin greetd

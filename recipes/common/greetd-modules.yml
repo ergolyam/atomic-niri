@@ -8,4 +8,4 @@ modules:
     - type: systemd
       system:
         enabled:
-          - greetd.service
+          - greetd-boot.service

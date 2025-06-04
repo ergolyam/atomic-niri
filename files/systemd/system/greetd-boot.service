@@ -1,0 +1,11 @@
+[Unit]
+Description=Create GREETD user on system boot
+Before=greetd.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/etc/greetd/greetd-useradd
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
