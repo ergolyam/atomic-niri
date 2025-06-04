@@ -76,8 +76,6 @@ modules:
         - NetworkManager-tui
         - NetworkManager-openvpn
         - NetworkManager-openvpn-gnome
-        - NetworkManager-openconnect
-        - NetworkManager-openconnect-gnome
         - bluez
         - bluez-tools
         - blueman
