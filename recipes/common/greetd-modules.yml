@@ -9,5 +9,4 @@ modules:
       system:
         enabled:
           - greetd-boot.service
-        enabled:
           - greetd.service
