@@ -33,9 +33,6 @@ modules:
 
     - type: rpm-ostree
       install:
-      # launcher
-        - wofi
-
       # environment
         - fzf
         - tuned-ppd
