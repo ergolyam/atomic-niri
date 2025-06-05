@@ -171,3 +171,4 @@ modules:
       user:
         enabled:
           - flatpak-unset-gtk-theme.service
+          - xfce-polkit.service
