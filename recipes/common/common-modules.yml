@@ -63,7 +63,7 @@ modules:
         - alsa-firmware
         - p7zip
         - distrobox
-        - kitty
+        - tmux
         
       # sound
         - wireplumber
