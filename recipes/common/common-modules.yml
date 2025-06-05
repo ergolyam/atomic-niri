@@ -102,9 +102,6 @@ modules:
         - brightnessctl
         - kanshi
 
-      # notifications
-        - mako
-
       # theme and GUI
         - fontawesome-fonts-all
         - gnome-themes-extra
