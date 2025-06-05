@@ -6,7 +6,6 @@ Before=greetd.service
 Type=oneshot
 ExecStart=/bin/sh -c '/usr/bin/getent group greetd > /dev/null || /usr/sbin/groupadd -r greetd'
 ExecStart=/bin/sh -c '/usr/bin/getent passwd greetd > /dev/null || /usr/sbin/useradd -r -g greetd -c "Greeter Account" -d /var/lib/greetd -s /usr/sbin/nologin greetd'
-ExecStart=/bin/sh -c '/usr/sbin/mkdir /var/cache/tuigreet && /usr/sbin/chown greetd:greetd /var/cache/tuigreet && /usr/sbin/chmod 0755 /var/cache/tuigreet'
 RemainAfterExit=yes
 
 [Install]
