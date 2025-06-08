@@ -103,9 +103,7 @@ modules:
         - fontawesome-fonts-all
         - gnome-themes-extra
         - gnome-icon-theme
-        - paper-icon-theme
-        - breeze-icon-theme 
-        - papirus-icon-theme
+        - adw-gtk3-theme
 
       # power
         - tlp
@@ -155,7 +153,7 @@ modules:
 
     - type: gschema-overrides
       include:
-        - zz1-secureblue-theming.gschema.override
+        - zz1-atomic-niri.gschema.override
 
     - type: script
       scripts:
