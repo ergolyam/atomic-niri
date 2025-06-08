@@ -162,5 +162,5 @@ modules:
     - type: systemd
       user:
         enabled:
-          - flatpak-unset-gtk-theme.service
+          - flatpak-setup-gtk-theme.service
           - xfce-polkit.service
