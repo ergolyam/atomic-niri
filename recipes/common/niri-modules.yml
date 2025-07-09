@@ -7,6 +7,7 @@ modules:
         - niri
         - waybar
         - xwayland-satellite
+        - xsettingsd
 
     - type: systemd
       user:
