@@ -1,4 +1,4 @@
-# atomic-niri   [![bluebuild build badge](https://github.com/grisha765/atomic-niri/actions/workflows/atomic-publish.yml/badge.svg)](https://github.com/grisha765/atomic-niri/actions/workflows/atomic-publish.yml)
+# atomic-niri   [![bluebuild build badge](https://github.com/ergolyam/atomic-niri/actions/workflows/atomic-publish.yml/badge.svg)](https://github.com/ergolyam/atomic-niri/actions/workflows/atomic-publish.yml)
 `atomic-niri` is a custom [Fedora Atomic](https://universal-blue.org/) image that ships the blazing‑fast [Niri](https://github.com/YaLTeR/niri) Wayland compositor out of the box together with a carefully curated set of desktop packages, codecs and quality‑of‑life tweaks.
 It is built with [BlueBuild](https://blue-build.org/) and follows the Universal Blue packaging philosophy.
 
@@ -12,7 +12,7 @@ To **rebase an existing Fedora Atomic installation** to the latest `atomic‑ni
 
 1. Rebase to the *unsigned* image first to fetch the signing keys:
     ```bash
-    rpm-ostree rebase ostree-unverified-registry:ghcr.io/grisha765/atomic-niri:latest
+    rpm-ostree rebase ostree-unverified-registry:ghcr.io/ergolyam/atomic-niri:latest
     ```
 
 2. Reboot:
@@ -22,7 +22,7 @@ To **rebase an existing Fedora Atomic installation** to the latest `atomic‑ni
 
 3. Rebase to the *signed* image:
     ```bash
-    rpm-ostree rebase ostree-image-signed:docker://ghcr.io/grisha765/atomic-niri:latest
+    rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ergolyam/atomic-niri:latest
     ```
 
 4. Reboot once more to start using `atomic‑niri`:
@@ -43,7 +43,7 @@ Every container image is signed with [Sigstore](https://www.sigstore.dev/) via [
 1. Download [`cosign.pub`](./cosign.pub) from this repository.
 2. Verify the signature:
     ```bash
-    cosign verify --key cosign.pub ghcr.io/grisha765/atomic-niri
+    cosign verify --key cosign.pub ghcr.io/ergolyam/atomic-niri
     ```
     - Successful verification proves the image was built by this repository’s CI.
 

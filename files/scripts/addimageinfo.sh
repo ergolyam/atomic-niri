@@ -15,10 +15,10 @@ set -oue pipefail
 
 IMAGE_PRETTY_NAME="atomic-niri"
 IMAGE_LIKE="fedora"
-HOME_URL="https://github.com/grisha765/atomic-niri"
-DOCUMENTATION_URL="https://github.com/grisha765/atomic-niri"
-SUPPORT_URL="https://github.com/grisha765/atomic-niri/issues"
-BUG_SUPPORT_URL="https://github.com/grisha765/atomic-niri/issues"
+HOME_URL="https://github.com/ergolyam/atomic-niri"
+DOCUMENTATION_URL="https://github.com/ergolyam/atomic-niri"
+SUPPORT_URL="https://github.com/ergolyam/atomic-niri/issues"
+BUG_SUPPORT_URL="https://github.com/ergolyam/atomic-niri/issues"
 
 if grep -q "VARIANT_ID" /usr/lib/os-release; then
     sed -i "s/^VARIANT_ID=.*/VARIANT_ID=$IMAGE_NAME/" /usr/lib/os-release
