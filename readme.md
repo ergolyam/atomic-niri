@@ -29,7 +29,7 @@ To **rebase an existing Fedora Atomic installation** to the latest `atomic‑ni
     ```bash
     systemctl reboot
     ```
-    - The `latest` tag always points to the newest build but **never** jumps across Fedora major releases the underlying release is fixed to the version declared in [`recipe.yml`](recipes/recipe.yml) (currently `42`).
+    - The `latest` tag always points to the newest build but **never** jumps across Fedora major releases the underlying release is fixed to the version declared in [`recipe.yml`](recipes/recipe.yml) (currently `43`).
 
 ## ISO
 
