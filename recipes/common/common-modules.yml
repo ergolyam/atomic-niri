@@ -109,6 +109,10 @@ modules:
         - tlp
         - wlogout
 
+      remove:
+        - firefox
+        - firefox-langpacks
+
     - type: script
       scripts:
         - installrpmfusion.sh
