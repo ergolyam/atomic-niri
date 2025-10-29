@@ -1,8 +1,5 @@
 # environment
 fzf
-tuned-ppd
-headsetcontrol
-mediainfo
 polkit
 xfce-polkit 
 fprintd-pam
@@ -10,8 +7,6 @@ xdg-user-dirs
 dbus-tools
 dbus-daemon
 wl-clipboard
-pavucontrol
-playerctl
 qt5-qtwayland
 qt6-qtwayland
 vulkan-validation-layers
@@ -21,17 +16,27 @@ gnome-disk-utility
 ddcutil
 openssl
 vim
-alsa-firmware
 p7zip
 distrobox
 tmux
 flatpak
+git
+
+# power
+tuned-ppd
+tlp
+wlogout
   
 # sound
 wireplumber
 pipewire
 pamixer
 pulseaudio-utils
+headsetcontrol
+mediainfo
+pavucontrol
+playerctl
+alsa-firmware
 
 # networking
 network-manager-applet
@@ -69,10 +74,6 @@ fontawesome-fonts-all
 gnome-themes-extra
 gnome-icon-theme
 adw-gtk3-theme
-
-# power
-tlp
-wlogout
 
 # display manager
 greetd
