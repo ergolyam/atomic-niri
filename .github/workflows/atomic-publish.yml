@@ -23,7 +23,7 @@ jobs:
         uses: redhat-actions/buildah-build@v2
         with:
           image: ${{ github.repository }}
-          tags: latest
+          tags: bootc
           containerfiles: ./containerfile
 
       - name: Push image to GHCR
@@ -33,5 +33,14 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           image: ${{ steps.build-image.outputs.image }}
-          tags: latest
+          tags: bootc
 
+      - name: Install cosign
+        uses: sigstore/cosign-installer@v3
+
+      - name: Sign image with private key
+        env:
+          IMAGE: ghcr.io/${{ github.repository }}:bootc
+          COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
+        run: |
+          cosign sign --yes --key env://COSIGN_PRIVATE_KEY "${IMAGE}"
