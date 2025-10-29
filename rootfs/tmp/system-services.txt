@@ -1,0 +1,8 @@
+# autoupdates
+rpm-ostreed-automatic.timer
+podman-auto-update.timer
+flatpak-system-update.timer
+
+# display manager
+greetd-boot.service
+greetd.service

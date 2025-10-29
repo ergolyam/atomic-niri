@@ -1,0 +1,83 @@
+# environment
+fzf
+tuned-ppd
+headsetcontrol
+mediainfo
+polkit
+xfce-polkit 
+fprintd-pam
+xdg-user-dirs
+dbus-tools
+dbus-daemon
+wl-clipboard
+pavucontrol
+playerctl
+qt5-qtwayland
+qt6-qtwayland
+vulkan-validation-layers
+vulkan-tools
+google-noto-emoji-fonts
+gnome-disk-utility
+ddcutil
+openssl
+vim
+alsa-firmware
+p7zip
+distrobox
+tmux
+  
+# sound
+wireplumber
+pipewire
+pamixer
+pulseaudio-utils
+
+# networking
+network-manager-applet
+NetworkManager-tui
+bluez
+bluez-tools
+blueman
+firewall-config
+
+# file manager
+thunar
+thunar-archive-plugin 
+thunar-volman
+xarchiver
+imv
+p7zip
+gvfs-mtp
+gvfs-gphoto2
+gvfs-smb
+gvfs-nfs
+gvfs-fuse
+gvfs-archive
+android-tools
+
+# display
+wlr-randr
+wlsunset
+brightnessctl
+kanshi
+
+# theme and GUI
+fontawesome-fonts-all
+gnome-themes-extra
+gnome-icon-theme
+adw-gtk3-theme
+
+# power
+tlp
+wlogout
+
+# display manager
+greetd
+tuigreet
+greetd-selinux
+
+# compozitor
+niri
+waybar
+xwayland-satellite
+xsettingsd

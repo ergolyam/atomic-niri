@@ -1,0 +1,11 @@
+# autoupdates
+podman-auto-update.timer
+flatpak-user-update.timer
+
+# environment
+flatpak-setup-gtk-theme.service
+xfce-polkit.service
+
+# compozitor
+xwayland-satellite.service
+waybar.service
