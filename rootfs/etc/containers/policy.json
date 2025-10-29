@@ -1,0 +1,25 @@
+{
+    "default": [
+        {
+            "type": "reject"
+        }
+    ],
+    "transports":
+        {
+	    "docker": 
+	        {
+                    "ghcr.io/ergolyam/atomic-niri": 
+		        [
+                            {
+                                "type": "sigstoreSigned",
+                                "keyPath": "/usr/local/etc/cosign.pub",
+				"signedIdentity": { "type": "matchRepository" }
+               	            }
+           	        ]
+	        },
+            "docker-daemon":
+                {
+                    "": [{"type":"insecureAcceptAnything"}]
+                }
+        }
+}
