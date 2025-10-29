@@ -1,6 +1,6 @@
 # autoupdates
 podman-auto-update.timer
-flatpak-user-update.timer
+#flatpak-user-update.timer
 
 # environment
 flatpak-setup-gtk-theme.service
