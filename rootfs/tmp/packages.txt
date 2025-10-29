@@ -36,6 +36,8 @@ pulseaudio-utils
 # networking
 network-manager-applet
 NetworkManager-tui
+NetworkManager-wifi
+NetworkManager-bluetooth
 bluez
 bluez-tools
 blueman
