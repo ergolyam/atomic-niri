@@ -25,6 +25,7 @@ alsa-firmware
 p7zip
 distrobox
 tmux
+flatpak
   
 # sound
 wireplumber
