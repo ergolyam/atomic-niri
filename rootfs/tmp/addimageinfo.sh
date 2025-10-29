@@ -21,9 +21,9 @@ SUPPORT_URL="https://github.com/ergolyam/atomic-niri/issues"
 BUG_SUPPORT_URL="https://github.com/ergolyam/atomic-niri/issues"
 
 if grep -q "VARIANT_ID" /usr/lib/os-release; then
-    sed -i "s/^VARIANT_ID=.*/VARIANT_ID=$IMAGE_NAME/" /usr/lib/os-release
+    sed -i "s/^VARIANT_ID=.*/VARIANT_ID=$IMAGE_PRETTY_NAME/" /usr/lib/os-release
 else
-    echo "VARIANT_ID=$IMAGE_NAME" >> /usr/lib/os-release
+    echo "VARIANT_ID=$IMAGE_PRETTY_NAME" >> /usr/lib/os-release
 fi
 sed -i "s/^PRETTY_NAME=.*/PRETTY_NAME=\"${IMAGE_PRETTY_NAME} (powered by Fedora Atomic)\"/" /usr/lib/os-release
 sed -i "s/^NAME=.*/NAME=\"$IMAGE_PRETTY_NAME\"/" /usr/lib/os-release
