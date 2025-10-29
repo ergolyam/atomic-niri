@@ -115,7 +115,6 @@ modules:
 
     - type: script
       scripts:
-        - installrpmfusion.sh
         - removeunusedrepos.sh
 
     - type: files
