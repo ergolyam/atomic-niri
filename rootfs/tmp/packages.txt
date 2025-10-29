@@ -70,6 +70,7 @@ brightnessctl
 kanshi
 
 # theme and GUI
+default-fonts
 fontawesome-fonts-all
 gnome-themes-extra
 gnome-icon-theme
