@@ -12,6 +12,7 @@ RUN dnf -y install \
     @hardware-support \
     @standard \
     @base-graphical \
+    glibc-all-langpacks \
     --exclude dracut-config-rescue
 
 RUN dnf -y install $(grep -vE '^\s*#|^\s*$' /tmp/packages.txt)
