@@ -19,7 +19,7 @@ wlogout
 # sound
 wireplumber
 pipewire
-pipewire-tools
+pipewire-utils
 pulseaudio-utils
 headsetcontrol
 pavucontrol
