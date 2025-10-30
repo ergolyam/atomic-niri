@@ -1,6 +1,14 @@
 name: Build and Push Atomic Image
 
 on:
+  schedule:
+    - cron:
+        "00 06 * * *"
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'readme.md'
   workflow_dispatch:
 
 jobs:
