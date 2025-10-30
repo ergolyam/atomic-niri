@@ -36,6 +36,7 @@ jobs:
         with:
           config-file: ./config.toml
           image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+          rootfs: btrfs
           types: |
             iso
 
