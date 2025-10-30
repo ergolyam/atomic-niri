@@ -14,6 +14,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      VERSION: 43
+      REGISTRY: ghcr.io
+      IMAGE_NAME: ${{ github.repository }}
 
     steps:
       - name: Checkout code
@@ -22,7 +26,7 @@ jobs:
       - name: Log in to GitHub Container Registry
         uses: redhat-actions/podman-login@v1
         with:
-          registry: ghcr.io
+          registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
@@ -30,25 +34,31 @@ jobs:
         id: build-image
         uses: redhat-actions/buildah-build@v2
         with:
-          image: ${{ github.repository }}
-          tags: bootc
+          image: ${{ env.IMAGE_NAME }}
+          tags: |
+            latest
+            ${{ env.VERSION }}
           containerfiles: ./containerfile
+          build-args: |
+            VERSION=${{ env.VERSION }}
 
       - name: Push image to GHCR
         uses: redhat-actions/push-to-registry@v2
         with:
-          registry: ghcr.io
+          registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           image: ${{ steps.build-image.outputs.image }}
-          tags: bootc
+          tags: |
+            latest
+            ${{ env.VERSION }}
 
       - name: Install cosign
         uses: sigstore/cosign-installer@v3
 
       - name: Sign image with private key
         env:
-          IMAGE: ghcr.io/${{ github.repository }}:bootc
           COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
         run: |
-          cosign sign --yes --key env://COSIGN_PRIVATE_KEY "${IMAGE}"
+          cosign sign --yes --key env://COSIGN_PRIVATE_KEY "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest"
+          cosign sign --yes --key env://COSIGN_PRIVATE_KEY "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}"
