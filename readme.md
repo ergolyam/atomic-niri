@@ -6,7 +6,7 @@ To **rebase an existing Fedora Bootc installation** to the latest `atomic‑nir
 
 1. Rebase to the *unsigned* image first to fetch the signing keys:
     ```bash
-    rpm-ostree rebase ostree-unverified-registry:ghcr.io/ergolyam/atomic-niri:bootc
+    rpm-ostree rebase ostree-unverified-registry:ghcr.io/ergolyam/atomic-niri:latest
     ```
 
 2. Reboot:
@@ -16,11 +16,11 @@ To **rebase an existing Fedora Bootc installation** to the latest `atomic‑nir
 
 3. Rebase to the *signed* image:
     ```bash
-    rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ergolyam/atomic-niri:bootc
+    rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ergolyam/atomic-niri:latest
     ```
 
 4. Reboot once more to start using `atomic‑niri`:
     ```bash
     systemctl reboot
     ```
-    - The `bootc` tag always points to the newest build but **never** jumps across Fedora major releases the underlying release is fixed to the version declared in [`containerfile`](containerfile).
+    - The `latest` tag always points to the newest build but **never** jumps across Fedora major releases the underlying release is fixed to the version declared in [`containerfile`](containerfile).
