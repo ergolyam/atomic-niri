@@ -21,11 +21,14 @@ wlogout
 wireplumber
 pipewire
 pipewire-utils
+pipewire-gstreamer
 pulseaudio-utils
 headsetcontrol
 pavucontrol
 playerctl
 alsa-firmware
+alsa-ucm
+alsa-utils
 
 # networking
 nm-connection-editor
