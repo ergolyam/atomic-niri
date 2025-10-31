@@ -30,6 +30,8 @@ RUN systemctl enable $(grep -vE '^\s*#|^\s*$' /tmp/system-services.txt)
 
 RUN systemctl --global enable $(grep -vE '^\s*#|^\s*$' /tmp/user-services.txt)
 
+RUN systemctl mask bootc-fetch-apply-updates.timer
+
 RUN sh /tmp/addimageinfo.sh
 
 RUN bootc container lint --no-truncate
