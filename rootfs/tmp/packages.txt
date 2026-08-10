@@ -63,7 +63,6 @@ kanshi
 # theme and GUI
 default-fonts
 fontawesome-fonts-all
-gnome-themes-extra
 gnome-icon-theme
 adw-gtk3-theme
 google-noto-color-emoji-fonts
