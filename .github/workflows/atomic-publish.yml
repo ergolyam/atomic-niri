@@ -15,7 +15,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      VERSION: 43
+      VERSION: 44
       REGISTRY: ghcr.io
       IMAGE_NAME: ${{ github.repository }}
 
