@@ -3,7 +3,7 @@ name: Build and Push Atomic Image
 on:
   schedule:
     - cron:
-        "00 06 * * *"
+        "00 06 * * 01"
   push:
     branches:
       - main
