@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Log in to GitHub Container Registry
-        uses: redhat-actions/podman-login@v1
+        uses: redhat-actions/podman-login@v2
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
@@ -32,7 +32,7 @@ jobs:
 
       - name: Build Container image
         id: build-image
-        uses: redhat-actions/buildah-build@v2
+        uses: redhat-actions/buildah-build@v3
         with:
           image: ${{ env.IMAGE_NAME }}
           tags: |
@@ -43,7 +43,7 @@ jobs:
             VERSION=${{ env.VERSION }}
 
       - name: Push image to GHCR
-        uses: redhat-actions/push-to-registry@v2
+        uses: redhat-actions/push-to-registry@v3
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
@@ -54,7 +54,7 @@ jobs:
             ${{ env.VERSION }}
 
       - name: Install cosign
-        uses: sigstore/cosign-installer@v3
+        uses: sigstore/cosign-installer@v4.1.2
 
       - name: Sign image with private key
         env:
