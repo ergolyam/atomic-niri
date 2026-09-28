@@ -4,10 +4,9 @@ FROM quay.io/fedora/fedora-bootc:${VERSION}
 
 COPY rootfs /
 
-RUN rm -rf /usr/local &&\
-    rm -rf /opt &&\
-    ln -s /var/usrlocal /usr/local &&\
-    ln -s /var/opt /opt
+RUN rm -rf /usr/local /opt &&\
+    ln -sr /var/usrlocal /usr/local &&\
+    ln -sr /var/opt /opt
 
 RUN dnf -y install \
     @core \
