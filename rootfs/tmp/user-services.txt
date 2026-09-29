@@ -7,5 +7,5 @@ flatpak-setup-gtk-theme.service
 xfce-polkit.service
 
 # compozitor
-xwayland-satellite.service
+#xwayland-satellite.service
 waybar.service
