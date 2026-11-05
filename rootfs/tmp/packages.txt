@@ -52,7 +52,6 @@ gvfs-gphoto2
 gvfs-smb
 gvfs-nfs
 gvfs-fuse
-gvfs-archive
 
 # display
 wlr-randr
